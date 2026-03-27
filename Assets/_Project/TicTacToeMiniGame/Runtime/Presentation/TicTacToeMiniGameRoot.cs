@@ -53,13 +53,8 @@ namespace TicTacToeMiniGame.Runtime.Presentation
             try
             {
                 TicTacToeMiniGameResult result = await _session.AwaitCompletionAsync().AttachExternalCancellation(cancellationToken);
-
-                if (_resultCloseDelayMilliseconds > 0)
-                {
-                    await UniTask.Delay(_resultCloseDelayMilliseconds, cancellationToken: cancellationToken);
-                }
-
-                return result;
+                _session = null;
+                return _session.Result;
             }
             catch (OperationCanceledException)
             {

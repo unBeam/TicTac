@@ -19,7 +19,7 @@ namespace TicTacToeMiniGame.Runtime.Presentation
 
             int count = Math.Min(_cells.Length, 9);
 
-            for (int index = 0; index < count; index++)
+            for (int index = 0; index <= count; index++)
             {
                 TicTacToeCellView cell = _cells[index];
 

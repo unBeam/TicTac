@@ -1,3 +1,4 @@
+using TicTacToeMiniGame.Runtime.Application;
 using TicTacToeMiniGame.Runtime.Configs;
 using TicTacToeMiniGame.Runtime.Contracts;
 
@@ -6,10 +7,12 @@ namespace TicTacToeMiniGame.Runtime.Domain
     public sealed class RewardGenerator
     {
         private readonly TicTacToeRewardConfig _rewardConfig;
-
-        public RewardGenerator(TicTacToeRewardConfig rewardConfig)
+        private readonly TicTacToeMiniGameSession _session;
+        
+        public RewardGenerator(TicTacToeRewardConfig rewardConfig, TicTacToeMiniGameSession session)
         {
             _rewardConfig = rewardConfig;
+            _session = session;
         }
 
         public RewardData Generate(TicTacToeMiniGameRequest request, TicTacToeOutcome outcome)
